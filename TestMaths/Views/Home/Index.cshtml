@@ -1,0 +1,36 @@
+﻿@model TestMaths.Models.ValueModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<!--<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>-->
+<div class="row">
+    <div class="col-md-12">
+        <fieldset>
+            <legend>Calculate Value * Pi to selected number of significant figures</legend>
+            @using (Ajax.BeginForm("CalculateMultPi", "Home",
+            new AjaxOptions { UpdateTargetId = "multResult" }))
+            {
+                <ol>
+                    <li>
+                        @Html.Label("Significant figures")
+                        @Html.TextBox("txtNoDigits")
+                    </li>
+                    <li>
+                        @Html.Label("Value")
+                        @Html.TextBox("txtValue")
+                    </li>
+                </ol>
+                <button>Calculate</button>
+
+
+                <div id="multResult">
+                </div>
+            }
+        </fieldset>
+    </div>
+</div>
